@@ -12,8 +12,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 
 public class LoginFormControl implements Initializable {
 
@@ -39,6 +43,16 @@ public class LoginFormControl implements Initializable {
     		}else {
     			if(login.getLoginStatus(userText.getText().trim().toString(), passText.getText().trim().toString(), accountType.getValue().toString())) {
         			error.getMessage("Logged In", "Done", "C");
+        			try {
+        					Stage oldStage = (Stage) userText.getParent().getScene().getWindow();
+						Parent root = FXMLLoader.load(getClass().getResource("/com/fxml/CashierDashboard.fxml"));
+						Scene scene = new Scene(root);
+						oldStage.centerOnScreen();
+						oldStage.setScene(scene);
+						oldStage.show();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
     			}else {
     				error.getMessage("Login Failed", "Your username or password is incorrect.\nMaybe you selected the wrong account type.\nTry again!!", "E");
 
