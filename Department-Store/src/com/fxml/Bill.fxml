@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="changeGround" onMouseClicked="#onClickProfile" prefHeight="602.0" prefWidth="942.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.BillControl">
+   <children>
+      <TextField fx:id="barcodeText" layoutX="107.0" layoutY="60.0" prefHeight="34.0" prefWidth="627.0" />
+      <Label layoutX="14.0" layoutY="60.0" prefHeight="34.0" prefWidth="105.0" text="Bar Code" />
+      <Label layoutX="14.0" layoutY="27.0" prefHeight="17.0" prefWidth="84.0" text="Bill No." />
+      <TextField fx:id="productIDText" layoutX="107.0" layoutY="118.0" prefHeight="34.0" prefWidth="97.0" />
+      <TextField fx:id="productNameText" layoutX="350.0" layoutY="118.0" prefHeight="34.0" prefWidth="513.0" />
+      <Label layoutX="230.0" layoutY="118.0" prefHeight="34.0" prefWidth="105.0" text="Product Name" />
+      <Label layoutX="14.0" layoutY="118.0" prefHeight="34.0" prefWidth="97.0" text="Product ID" />
+      <Label layoutX="10.0" layoutY="182.0" prefHeight="34.0" prefWidth="97.0" text="Quantity" />
+      <TextField fx:id="qtyText" layoutX="107.0" layoutY="182.0" prefHeight="34.0" prefWidth="97.0" />
+      <Label layoutX="234.0" layoutY="182.0" prefHeight="34.0" prefWidth="97.0" text="Supplier" />
+      <TextField fx:id="supplierText" layoutX="350.0" layoutY="182.0" prefHeight="34.0" prefWidth="243.0" />
+      <Label layoutX="617.0" layoutY="182.0" prefHeight="34.0" prefWidth="64.0" text="Rate" />
+      <TextField fx:id="rateText" layoutX="686.0" layoutY="182.0" prefHeight="34.0" prefWidth="97.0" />
+      <Label layoutX="681.0" layoutY="27.0" prefHeight="17.0" prefWidth="84.0" text="Date" />
+      <TextField fx:id="dateText" layoutX="795.0" layoutY="19.0" prefHeight="34.0" prefWidth="97.0" />
+      <Text fx:id="billNo" layoutX="107.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" wrappingWidth="64.21875" />
+      <TableView fx:id="billTable" layoutX="10.0" layoutY="230.0" prefHeight="348.0" prefWidth="643.0">
+        <columns>
+          <TableColumn fx:id="snCol" prefWidth="75.0" text="S.N" />
+          <TableColumn fx:id="pIdCol" prefWidth="75.0" text="Product ID" />
+            <TableColumn fx:id="pNameCol" prefWidth="257.0" text="Product Name" />
+            <TableColumn fx:id="rateCol" prefWidth="75.0" text="Rate" />
+            <TableColumn fx:id="qtyCol" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="amountCol" prefWidth="85.0" text="Amount" />
+        </columns>
+      </TableView>
+      <Label layoutX="681.0" layoutY="230.0" prefHeight="34.0" prefWidth="214.0" text="Total Cost" />
+      <Label layoutX="676.0" layoutY="293.0" prefHeight="17.0" prefWidth="97.0" text="Sub Total" />
+      <Label layoutX="676.0" layoutY="343.0" prefHeight="17.0" prefWidth="97.0" text="Discount%" />
+      <Label layoutX="676.0" layoutY="441.0" prefHeight="17.0" prefWidth="97.0" text="Grand Total" />
+      <Label layoutX="676.0" layoutY="389.0" prefHeight="17.0" prefWidth="97.0" text="Tax%" />
+      <TextField fx:id="subTotal" layoutX="784.0" layoutY="285.0" prefHeight="34.0" prefWidth="97.0" />
+      <TextField fx:id="discount" layoutX="784.0" layoutY="334.0" prefHeight="34.0" prefWidth="97.0" />
+      <TextField fx:id="tax" layoutX="784.0" layoutY="380.0" prefHeight="34.0" prefWidth="97.0" />
+      <TextField fx:id="grandTotal" layoutX="784.0" layoutY="424.0" prefHeight="34.0" prefWidth="97.0" />
+   </children>
+</AnchorPane>
