@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.services.ErrorHandling;
+import com.services.LoginValidate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +29,7 @@ public class LoginFormControl implements Initializable {
     @FXML
     void onClickLogin(ActionEvent event) {
     		ErrorHandling error = new ErrorHandling();
+    		LoginValidate login = new LoginValidate();
     		if (userText.getText().isEmpty()) {
     			error.getMessage("Empty Field", "User Name cannot be empty", "E");
     		}else if(passText.getText().isEmpty()) {
@@ -35,8 +37,11 @@ public class LoginFormControl implements Initializable {
     		}else if(accountType.getSelectionModel().isEmpty()) {
     			error.getMessage("Empty Field", "Account Type cannot be empty", "E");
     		}else {
-    			if(true) {
-        			error.getMessage("Empty Field", "Done", "C");
+    			if(login.getLoginStatus(userText.getText().trim().toString(), passText.getText().trim().toString(), accountType.getValue().toString())) {
+        			error.getMessage("Logged In", "Done", "C");
+    			}else {
+    				error.getMessage("Login Failed", "Your username or password is incorrect.\nMaybe you selected the wrong account type.\nTry again!!", "E");
+
     			}
     		}
     }
